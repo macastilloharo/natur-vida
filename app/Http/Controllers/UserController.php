@@ -9,6 +9,7 @@ class UserController extends Controller
 	public function index() 
     {
 		
+		
 		if (request()->has('empty')) {
 			$users = [];
 		} else {
