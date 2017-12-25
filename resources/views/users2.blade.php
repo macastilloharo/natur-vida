@@ -7,11 +7,15 @@
         <title>Laravel</title>
        <body>
         <h1>{{ $title }} </h1>
-  <ul>
+        <hr>
+@if (! empty($users))
+      <ul>
        @foreach($users as $user)
        <li>{{$user}}</li>
         @endforeach
-
        </ul>
-    </body>
+@else
+    <p>No hay usuarios registrados</p>       
+@endif       
+           </body>
 </html>

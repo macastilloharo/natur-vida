@@ -6,43 +6,38 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-	public function index()
-	    {
+	public function index() 
+    {
 		
-		$users = [
-            'Joel',
-            'Luis',
-            'Antonio',
-            'Pedro'
-            
-		];
+		if (request()->has('empty')) {
+			$users = [];
+		} else {
+
+		$users = [ 'Joel', 'Luis', 'Antonio', 'Pedro'];
+         $title = "Listado de usuarios";
+          	
 		
-        $title ="Listado de usuarios";
-
-
-		// return view('users', [
-        //     'users' => $users,
-        //     'title' => 'Listado de usuarios'
-        //     ]);
-
-		// return view('users')
-        //     ->with('users',$users)
-        //     ->with('title',$title);
-            
-       // dd(compact('title','users'));
-
-        //return view('users', compact('title','users')); //Compact -> array asociativo.
-        return view('users2', compact('title','users')); //Compact -> array asociativo.    
-	}
+		// 		return view('users', [
+		        // 		'users' => $users,
+		        // 		'title' => 'Listado de usuarios'
+		        // 		]);
+		
+		// 		return view('users')
+		        // 		->with('users',$users)
+		        // 		->with('title',$title);
+		
+		// 		dd(compact('title','users'));
+		
+		//r		eturn view('users', compact('title','users'));
+		//C		ompact -> array asociativo.
+		       
+		//C		ompact -> array asociativo.
+           	return view('users2', compact('title','users'));
+		}
+	}	
 	
-	public function show($id)
-	{
-		return "Detalle del usuario {$id}";
-	}
+     public function show($id) { return "Detalle del usuario {$id}"; }
+     public function create() { return "Crear nuevo usuario"; }
 	
-	public function create()
-	{
-		return "Crear nuevo usuario";
-	}
-	
+    
 }
